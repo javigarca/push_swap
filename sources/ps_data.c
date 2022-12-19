@@ -9,44 +9,39 @@ int	*ft_data_load(char **data)
 
 	i = 0;
 	arguments = ft_args_join(data);
-	datareturn = (int *) malloc(sizeof (int) * ft_num_sub(arguments, ' '));
-	ft_putstr_fd(arguments, 1);
-	ft_putnbr_fd(ft_num_sub(arguments, ' '), 1);
+	ft_check_num(arguments);
+	datareturn = (int *) malloc(sizeof (int *) * ft_num_sub(arguments, ' '));
 	argument = ft_split(arguments, ' ');
-	ft_putstr_fd("\nArgumentos\n", 1);
 	while (argument[i])
 	{
-	ft_putstr_fd(argument[i], 1);
-	ft_putstr_fd("--\n", 1);
+		printf("\nESTE: %s\n", argument[i]);
 		datareturn[i] = ft_atoi(argument[i]);
-	ft_putnbr_fd(datareturn[i], 1);
-	ft_putstr_fd("**\n", 1);
-		i++;
+		printf("\nINT YA: %d\n", datareturn[i]);
+		free(argument[i++]);
 	}
-	free(argument);
 	free(arguments);
-	ft_putstr_fd("FIN", 1);
+	ft_print_int(datareturn, i);
+	ft_check_dupl(datareturn, i);
 	return (datareturn);
 }
 
-void	ft_check_data(int *data)
+void	ft_check_dupl(int *data, int len)
 {
-	int i;
+	int	i;
 	int	k;
-	int max;
 
-	i = 0;
 	k = 0;
-	max = 0;
-	while (data[i++])
-		max++;
 	i = 0;
-	while (i < max)
+	while (i < len)
 	{
-		while (++k < max)
+		while (++k < len)
 		{
 			if ((data[i] == data[k]) && (i != k))
-				ft_exit_error(2);
+				if (!ft_isspace(*data))
+				{
+					ft_putchar_fd(*data, 1);
+					ft_exit_error(2);
+				}
 		}
 		k = 0;
 		i++;
@@ -73,7 +68,6 @@ char	*ft_args_join(char **data)
 	return (join);
 }
 
-
 int	ft_num_sub(const char *str, char c)
 {
 	int	cont;
@@ -97,4 +91,15 @@ int	ft_num_sub(const char *str, char c)
 		str++;
 	}
 	return (cont);
+}
+
+void	ft_check_num(char *data)
+{
+	while (*data)
+	{
+		if (!ft_isdigit(*data))
+			if (!ft_isspace(*data))
+				ft_exit_error(3);
+		data++;
+	}
 }

@@ -3,20 +3,20 @@
 void	ft_exit_error(int code)
 {
 	if (code == 1)
-		ft_error_args();
+		ft_putstr_fd("ERROR, not enough arguments\n", 1);
 	if (code == 2)
-		ft_error_dupl();
-}
-
-void	ft_error_args()
-{
-	ft_putstr_fd("ERROR, not enough arguments\n", 1);
+		ft_putstr_fd("ERROR, some argument is duplicated\n", 1);
+	if (code == 3)
+		ft_putstr_fd("ERROR, some argument is not a number\n", 1);
+	if (code == 4)
+		ft_putstr_fd("ERROR, not enough memory for allocation\n", 1);
+//	system ("leaks push_swap");
 	exit(1);
 }
 
-void	ft_error_dupl()
+int	ft_isspace(int c)
 {
-	ft_putstr_fd("ERROR, some argument is duplicated\n", 1);
-	exit(1);
+	if ((c > 8 && c < 14) || (c == 32))
+		return (1);
+	return (0);
 }
-
