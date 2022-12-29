@@ -1,27 +1,26 @@
 #include "push_swap.h"
 
-int	*ft_data_load(char **data)
+t_dtint	ft_data_load(char **data)
 {
 	char	*arguments;
 	char	**argument;
-	int		*datareturn;
+	t_dtint	datareturn;
 	int		i;
 
 	i = 0;
 	arguments = ft_args_join(data);
 	ft_check_num(arguments);
-	datareturn = (int *) malloc(sizeof (int *) * ft_num_sub(arguments, ' '));
+	datareturn.nb = (int *) malloc(sizeof (int *) * ft_num_sub(arguments, ' '));
 	argument = ft_split(arguments, ' ');
 	while (argument[i])
 	{
-		printf("\nESTE: %s\n", argument[i]);
-		datareturn[i] = ft_atoi(argument[i]);
-		printf("\nINT YA: %d\n", datareturn[i]);
+		datareturn.nb[i] = ft_myatoi(argument[i]);
 		free(argument[i++]);
 	}
 	free(arguments);
-	ft_print_int(datareturn, i);
-	ft_check_dupl(datareturn, i);
+	datareturn.len = i;
+	ft_print_int(datareturn.nb, datareturn.len);
+	ft_check_dupl(datareturn.nb, datareturn.len);
 	return (datareturn);
 }
 
@@ -38,10 +37,7 @@ void	ft_check_dupl(int *data, int len)
 		{
 			if ((data[i] == data[k]) && (i != k))
 				if (!ft_isspace(*data))
-				{
-					ft_putchar_fd(*data, 1);
 					ft_exit_error(2);
-				}
 		}
 		k = 0;
 		i++;
