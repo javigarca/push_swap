@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2022/12/31 18:33:01 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:23:31 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ void	ft_load_nodes(t_dtint dt, t_stack **fnode, t_stack **lnode, \
 		t_stack **stack);
 void	ft_delete_node(t_stack **nodel);
 void	ft_print_stack(t_stack *node);
+int		ft_stack_len(t_stack *stack);
 // ps_actions //
+int		ft_issorted(t_stack *stack);
 void	ft_first2last(t_stack **stack);
 void	ft_last2first(t_stack **stack);
 void	ft_swap_2(t_stack **stack);

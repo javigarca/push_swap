@@ -5,6 +5,8 @@ int	main(int argc, char **argv)
 	t_dtint	data;
 	t_stack	*stack_a;
 	t_stack *stack_b;
+//	int sort;
+//	int len;
 
 //	printf("Start:%d\n", argc);
 	if (argc < 2)
@@ -32,6 +34,10 @@ int	main(int argc, char **argv)
 //	ft_print_stack(stack_a);
 //	printf("\nStack push B:");
 //	ft_print_stack(stack_b);
+//	sort = ft_issorted(stack_a);
+//	printf("\nres sort: %i\n", sort);
+//	len = ft_stack_len(stack_a);
+//	printf("len: %i\n", len);
 	
 /* ** END ** */	
 	stack_a = NULL;

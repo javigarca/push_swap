@@ -1,5 +1,24 @@
 #include "push_swap.h"
 
+int		ft_issorted(t_stack *stack)
+{
+	t_stack *head;
+	int		sort;
+
+	head = stack;
+	stack = stack->next;
+	sort = 0;
+	while (stack != head)
+	{
+		if (stack->data < stack->prev->data)
+			sort++;
+		stack = stack->next;
+	}
+	if (!sort)
+		return (1);
+	return (0);
+}
+
 void	ft_first2last(t_stack **stack)
 {
 	*stack = (*stack)->prev;

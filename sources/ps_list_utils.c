@@ -69,3 +69,21 @@ void	ft_delete_node(t_stack **nodel)
 		*nodel = (*nodel)->next;
 	}
 }
+
+int		ft_stack_len(t_stack *stack)
+{
+	t_stack *head;
+	int		len;
+
+	if (!stack)
+		return (0);
+	head = stack;
+	stack = stack->next;
+	len = 1;
+	while (stack != head)
+	{ 
+		len++;
+		stack = stack->next;
+	}
+	return (len);
+}
