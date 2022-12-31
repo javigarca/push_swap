@@ -23,11 +23,18 @@ int	ft_isspace(int c)
 	return (0);
 }
 
+int	ft_issign(int c)
+{
+	if ((c == 43) || (c == 45))
+		return (1);
+	return (0);
+}
+
 int	ft_myatoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	atoi;
+	int		i;
+	int		sign;
+	long	atoi;
 
 	i = 0;
 	atoi = 0;
@@ -45,9 +52,9 @@ int	ft_myatoi(const char *str)
 	{
 		atoi *= 10;
 		atoi += (str[i] - 48);
-		if ((atoi < INT_MIN) || (atoi > INT_MAX))
-			ft_exit_error(5);
 		i++;
 	}
+	if ((atoi < INT_MIN) || (atoi > INT_MAX))
+		ft_exit_error(5);
 	return (atoi * sign);
 }

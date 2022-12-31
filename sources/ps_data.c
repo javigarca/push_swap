@@ -94,7 +94,7 @@ void	ft_check_num(char *data)
 	while (*data)
 	{
 		if (!ft_isdigit(*data))
-			if (!ft_isspace(*data))
+			if (!ft_isspace(*data) && !ft_issign(*data))
 				ft_exit_error(3);
 		data++;
 	}

@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2022/12/29 18:46:15 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/12/31 18:33:01 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,18 @@ int		ft_num_sub(const char *str, char c);
 // ps_error //
 void	ft_exit_error(int code);
 int		ft_isspace(int c);
+int		ft_issign(int c);
 int		ft_myatoi(const char *str);
 // ps_list_utils //
 t_stack	*ft_build_stack(t_dtint dt);
 void	ft_load_nodes(t_dtint dt, t_stack **fnode, t_stack **lnode, \
-		t_stack *stack);
-int		ft_insert_node_start(t_stack **node, int dt);
-int		ft_create_node_end(t_stack **node, int dt);
-int		ft_delete_node_end(t_stack **node, int dt);
+		t_stack **stack);
+void	ft_delete_node(t_stack **nodel);
 void	ft_print_stack(t_stack *node);
-//  //
+// ps_actions //
+void	ft_first2last(t_stack **stack);
+void	ft_last2first(t_stack **stack);
+void	ft_swap_2(t_stack **stack);
+void	ft_push2other(t_stack **from, t_stack **to);
 //  //
 #endif
