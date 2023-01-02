@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2022/12/31 19:23:31 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/02 22:47:12 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_exit_error(int code);
 int		ft_isspace(int c);
 int		ft_issign(int c);
 int		ft_myatoi(const char *str);
+void	ft_pr_action(int op);
 // ps_list_utils //
 t_stack	*ft_build_stack(t_dtint dt);
 void	ft_load_nodes(t_dtint dt, t_stack **fnode, t_stack **lnode, \
@@ -55,9 +56,17 @@ void	ft_print_stack(t_stack *node);
 int		ft_stack_len(t_stack *stack);
 // ps_actions //
 int		ft_issorted(t_stack *stack);
-void	ft_first2last(t_stack **stack);
-void	ft_last2first(t_stack **stack);
-void	ft_swap_2(t_stack **stack);
-void	ft_push2other(t_stack **from, t_stack **to);
-//  //
+void	ft_first2last(t_stack **stack, int op);
+void	ft_last2first(t_stack **stack, int op);
+void	ft_swap_2(t_stack **stack, int op);
+void	ft_push2other(t_stack **from, t_stack **to, int op);
+// ps_sorting.c //
+void	ft_sort_pos(t_stack **stack_a, t_stack **stack_b, int bit);
+void	ft_sort_neg(t_stack **stack_a, t_stack **stack_b);
+int		ft_stack_max(t_stack *stack);
+void	ft_sort_big(t_stack *stack);
+void	ft_sort_3(t_stack *stack);
+// ps_sorting_2.c //
+void	ft_sort_5(t_stack *stack);
+int		ft_stack_min(t_stack *stack);
 #endif

@@ -19,7 +19,6 @@ t_dtint	ft_data_load(char **data)
 	}
 	free(arguments);
 	datareturn.len = i;
-	ft_print_int(datareturn.nb, datareturn.len);
 	ft_check_dupl(datareturn.nb, datareturn.len);
 	return (datareturn);
 }

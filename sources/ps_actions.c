@@ -19,26 +19,32 @@ int		ft_issorted(t_stack *stack)
 	return (0);
 }
 
-void	ft_first2last(t_stack **stack)
-{
-	*stack = (*stack)->prev;
-}
-
-void	ft_last2first(t_stack **stack)
+void	ft_first2last(t_stack **stack, int op)
 {
 	*stack = (*stack)->next;
+	if (op)
+		ft_pr_action(op);
 }
 
-void	ft_swap_2(t_stack **stack)
+void	ft_last2first(t_stack **stack, int op)
+{
+	*stack = (*stack)->prev;
+	if (op)
+		ft_pr_action(op);
+}
+
+void	ft_swap_2(t_stack **stack, int op)
 {
 	int temp;
 
 	temp = (*stack)->data;
 	(*stack)->data = (*stack)->next->data;
 	(*stack)->next->data = temp;
+	if (op)
+		ft_pr_action(op);
 }
 
-void	ft_push2other(t_stack **from, t_stack **to)
+void	ft_push2other(t_stack **from, t_stack **to, int op)
 {
 	t_stack	*push;
 	t_stack *oldto;
@@ -62,4 +68,6 @@ void	ft_push2other(t_stack **from, t_stack **to)
         (*to)->prev->prev->next = push;
         *to = (*to)->prev;
 	}
+	if (op)
+		ft_pr_action(op);
 }

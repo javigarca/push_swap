@@ -1,3 +1,5 @@
 fdf.dSYM/
 .*.swp
 .DS*
+test.c
+*.c.bak
