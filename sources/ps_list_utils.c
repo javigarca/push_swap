@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_list_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/03 19:04:23 by javigarc          #+#    #+#             */
+/*   Updated: 2023/01/03 20:24:19 by javigarc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_load_nodes(t_dtint dt, t_stack **fnode, t_stack **lnode, \
@@ -47,7 +59,7 @@ void	ft_print_stack(t_stack *stack)
 	t_stack	*current;
 
 	if (!stack)
-		return;
+		return ;
 	current = stack;
 	printf("%i*", current->data);
 	current = current->next;
@@ -70,9 +82,9 @@ void	ft_delete_node(t_stack **nodel)
 	}
 }
 
-int		ft_stack_len(t_stack *stack)
+int	ft_stack_len(t_stack *stack)
 {
-	t_stack *head;
+	t_stack	*head;
 	int		len;
 
 	if (!stack)
@@ -81,7 +93,7 @@ int		ft_stack_len(t_stack *stack)
 	stack = stack->next;
 	len = 1;
 	while (stack != head)
-	{ 
+	{
 		len++;
 		stack = stack->next;
 	}

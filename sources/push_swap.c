@@ -1,32 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/03 18:57:51 by javigarc          #+#    #+#             */
+/*   Updated: 2023/01/03 19:47:09 by javigarc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
 	t_dtint	data;
 	t_stack	*stack_a;
-	t_stack *stack_b;
 
 	if (argc == 1)
-		exit(1);
+		exit(0);
 	data = ft_data_load(argv);
 	stack_a = ft_build_stack(data);
-	stack_b = NULL;
 	if (ft_issorted(stack_a))
 		return (0);
 	else
 	{
 		if (ft_stack_len(stack_a) < 4)
 			ft_sort_3(&stack_a);
-		else
-			if (ft_stack_len(stack_a) < 6)
-				ft_sort_5(stack_a);
-			else
-				ft_sort_big(stack_a);
+		if (ft_stack_len(stack_a) == 4)
+			ft_sort_4(stack_a);
+		if (ft_stack_len(stack_a) == 5)
+			ft_sort_5(stack_a);
+		if (ft_stack_len(stack_a) > 5)
+			ft_sort_big(stack_a);
 	}
 	stack_a = NULL;
-	stack_b = NULL;
 	free(stack_a);
-	free(stack_b);
 	free(data.nb);
 //	system("leaks push_swap");
 	return (0);

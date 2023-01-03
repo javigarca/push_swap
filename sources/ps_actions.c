@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_actions.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/03 19:02:11 by javigarc          #+#    #+#             */
+/*   Updated: 2023/01/03 19:34:50 by javigarc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int		ft_issorted(t_stack *stack)
+int	ft_issorted(t_stack *stack)
 {
-	t_stack *head;
+	t_stack	*head;
 	int		sort;
 
 	head = stack;
@@ -35,7 +47,7 @@ void	ft_last2first(t_stack **stack, int op)
 
 void	ft_swap_2(t_stack **stack, int op)
 {
-	int temp;
+	int	temp;
 
 	temp = (*stack)->data;
 	(*stack)->data = (*stack)->next->data;
@@ -47,27 +59,28 @@ void	ft_swap_2(t_stack **stack, int op)
 void	ft_push2other(t_stack **from, t_stack **to, int op)
 {
 	t_stack	*push;
-	t_stack *oldto;
+	t_stack	*oldto;
 
-	if (!*from)
-		return;
-	push = *from;
-	ft_delete_node(from);
-	if (!*to)
+	if (*from)
 	{
-		*to = push;
-		(*to)->next = *to;
-		(*to)->prev = *to;
+		push = *from;
+		ft_delete_node(from);
+		if (!*to)
+		{
+			*to = push;
+			(*to)->next = *to;
+			(*to)->prev = *to;
+		}
+		else
+		{
+			oldto = (*to)->prev;
+			(*to)->prev = push;
+			(*to)->prev->next = *to;
+			(*to)->prev->prev = oldto;
+			(*to)->prev->prev->next = push;
+			*to = (*to)->prev;
+		}
+		if (op)
+			ft_pr_action(op);
 	}
-	else
-	{
-		oldto = (*to)->prev;
-        (*to)->prev = push;
-        (*to)->prev->next = *to;
-        (*to)->prev->prev = oldto;
-        (*to)->prev->prev->next = push;
-        *to = (*to)->prev;
-	}
-	if (op)
-		ft_pr_action(op);
 }

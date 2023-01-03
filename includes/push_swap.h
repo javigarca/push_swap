@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 12:09:55 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/03 18:46:46 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int		ft_stack_max(t_stack *stack);
 void	ft_sort_big(t_stack *stack);
 void	ft_sort_3(t_stack **stack);
 // ps_sorting_2.c //
+void	ft_sort_4(t_stack *stack);
 void	ft_sort_5(t_stack *stack);
 int		ft_stack_min(t_stack *stack);
 int		ft_find_bit(t_stack *stack);

@@ -6,48 +6,54 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 23:13:46 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 12:54:33 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/03 18:56:48 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_5(t_stack *stack)
+void	ft_sort_4(t_stack *stack)
 {
-	int i;
-	int min;
-	int max;
-	t_stack *stack_b;
-	t_stack *stack_a;
+	int		i;
+	int		min;
+	t_stack	*stack_b;
 
 	i = 0;
-	stack_a = stack;
 	stack_b = NULL;
-//	printf ("\nMIN: %i", ft_stack_min(stack));
 	min = ft_stack_min(stack);
-//	printf ("\nMAX: %i", ft_stack_max(stack));
+	while (stack->data != min)
+		ft_first2last(&stack, 6);
+	ft_push2other(&stack, &stack_b, 5);
+	ft_sort_3(&stack);
+	ft_push2other(&stack_b, &stack, 4);
+	free(stack);
+}
+
+void	ft_sort_5(t_stack *stack)
+{
+	int		i;
+	int		min;
+	int		max;
+	t_stack	*stack_b;
+
+	i = 0;
+	stack_b = NULL;
+	min = ft_stack_min(stack);
 	max = ft_stack_max(stack);
-	while (i <= ft_stack_len(stack_a))
+	while (ft_stack_len(stack) > 3)
 	{
-		if ((stack_a->data == min) || (stack_a->data == max))
-			ft_push2other(&stack_a, &stack_b, 5);
+		if ((stack->data == min) || (stack->data == max))
+			ft_push2other(&stack, &stack_b, 5);
 		else
-			ft_first2last(&stack_a, 6);
-		i++;
+			ft_first2last(&stack, 6);
 	}
-//	printf("\nA: ");
-//	ft_print_stack(stack_a);
-//	printf("\nB: ");
-//	ft_print_stack(stack_b);
-	if (!(ft_issorted(stack_a)))
-		ft_sort_3(&stack_a);
-	if (stack_b->data < stack_b->next->data)
+	ft_sort_3(&stack);
+	if ((stack_b->data < stack_b->next->data))
 		ft_swap_2(&stack_b, 2);
-	ft_push2other(&stack_b, &stack_a, 4);
-	ft_first2last(&stack_a, 6);
-	ft_push2other(&stack_b, &stack_a, 4);
-//	printf("\nA: ");
-//	ft_print_stack(stack_a);
+	ft_push2other(&stack_b, &stack, 4);
+	ft_first2last(&stack, 6);
+	ft_push2other(&stack_b, &stack, 4);
+	free(stack);
 }
 
 int	ft_stack_min(t_stack *stack)
@@ -70,9 +76,9 @@ int	ft_stack_min(t_stack *stack)
 
 int	ft_find_bit(t_stack *stack)
 {
-	int num;
-	int bit;
-	
+	int	num;
+	int	bit;
+
 	bit = 31;
 	if (ft_stack_max(stack) > -(ft_stack_min(stack)))
 		num = ft_stack_max(stack);

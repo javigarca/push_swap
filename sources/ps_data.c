@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_data.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/03 20:19:28 by javigarc          #+#    #+#             */
+/*   Updated: 2023/01/03 20:19:46 by javigarc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_dtint	ft_data_load(char **data)
@@ -35,8 +47,7 @@ void	ft_check_dupl(int *data, int len)
 		while (++k < len)
 		{
 			if ((data[i] == data[k]) && (i != k))
-				if (!ft_isspace(*data))
-					ft_exit_error(2);
+				ft_exit_error(2);
 		}
 		k = 0;
 		i++;
