@@ -13,9 +13,8 @@ void	ft_exit_error(int code)
 //	if (code == 5)
 //		ft_putstr_fd("ERROR, some number out of INT scope\n", 1);
 //	system ("leaks push_swap");
-	if (code == 1)
-		exit(1);
-	ft_putstr_fd("Error\n", 1);
+	code = 0;
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
@@ -45,19 +44,21 @@ int	ft_myatoi(const char *str)
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f'
 		|| str[i] == '\r' || str[i] == ' ')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			sign = -sign;
+			sign *= -1;
 		i++;
 	}
+	if (!str[i])
+		ft_exit_error(2);
 	while ((str[i] != '\0') && (str[i] >= 48 && str[i] <= 57))
 	{
 		atoi *= 10;
 		atoi += (str[i] - 48);
 		i++;
 	}
-	if ((atoi < INT_MIN) || (atoi > INT_MAX))
+	if (((atoi * sign) < INT_MIN) || ((atoi * sign) > INT_MAX))
 		ft_exit_error(5);
 	return (atoi * sign);
 }

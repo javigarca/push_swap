@@ -49,11 +49,11 @@ void	ft_print_stack(t_stack *stack)
 	if (!stack)
 		return;
 	current = stack;
-	printf("%i-", current->data);
+	printf("%i*", current->data);
 	current = current->next;
 	while (current != stack)
 	{
-		printf("%i-", current->data);
+		printf("%i*", current->data);
 		current = current->next;
 	}
 }

@@ -6,8 +6,8 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack *stack_b;
 
-	if (argc < 2)
-		ft_exit_error(argc);
+	if (argc == 1)
+		exit(1);
 	data = ft_data_load(argv);
 	stack_a = ft_build_stack(data);
 	stack_b = NULL;
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		if (ft_stack_len(stack_a) < 4)
-			ft_sort_3(stack_a);
+			ft_sort_3(&stack_a);
 		else
 			if (ft_stack_len(stack_a) < 6)
 				ft_sort_5(stack_a);

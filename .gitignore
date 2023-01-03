@@ -3,3 +3,4 @@ fdf.dSYM/
 .DS*
 test.c
 *.c.bak
+push_swap_tester/
