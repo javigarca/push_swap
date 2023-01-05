@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:21:33 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 20:26:22 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:46:49 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,10 @@ void	ft_sort_pos(t_stack **stack_a, t_stack **stack_b, int bit)
 	slen = ft_stack_len(*stack_a);
 	while (slen)
 	{
-		if ((((*stack_a)->data >> bit) & 1) == 1)
-		{
-			ft_push2other(stack_a, stack_b, 5);
-			if (ft_stack_len(*stack_b) > 1)
-				ft_first2last(stack_b, 7);
-		}
-		else
+		if ((((*stack_a)->index >> bit) & 1) == 1)
 			ft_first2last(stack_a, 6);
+		else
+			ft_push2other(stack_a, stack_b, 5);
 		slen--;
 	}
 	if (*stack_b)
@@ -35,7 +31,6 @@ void	ft_sort_pos(t_stack **stack_a, t_stack **stack_b, int bit)
 		while (slen)
 		{
 			ft_push2other(stack_b, stack_a, 4);
-			ft_first2last(stack_a, 6);
 			slen--;
 		}
 	}
@@ -92,6 +87,7 @@ void	ft_sort_big(t_stack *stack)
 	int		bit;
 	int		maxbit;
 
+	ft_stack_indexing(&stack);
 	maxbit = ft_find_bit(stack);
 	stack_b = NULL;
 	bit = 0;
@@ -100,7 +96,6 @@ void	ft_sort_big(t_stack *stack)
 		ft_sort_pos(&stack, &stack_b, bit);
 		bit++;
 	}
-	ft_sort_neg(&stack, &stack_b);
 }
 
 void	ft_sort_3(t_stack **stack)

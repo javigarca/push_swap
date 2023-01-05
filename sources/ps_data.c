@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:19:28 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 20:19:46 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:20:03 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_check_dupl(int *data, int len)
 		while (++k < len)
 		{
 			if ((data[i] == data[k]) && (i != k))
-				ft_exit_error(2);
+				ft_exit_error();
 		}
 		k = 0;
 		i++;
@@ -105,7 +105,7 @@ void	ft_check_num(char *data)
 	{
 		if (!ft_isdigit(*data))
 			if (!ft_isspace(*data) && !ft_issign(*data))
-				ft_exit_error(3);
+				ft_exit_error();
 		data++;
 	}
 }

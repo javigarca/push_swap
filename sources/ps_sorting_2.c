@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 23:13:46 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 18:56:48 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:47:35 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,31 @@ int	ft_find_bit(t_stack *stack)
 	int	bit;
 
 	bit = 31;
-	if (ft_stack_max(stack) > -(ft_stack_min(stack)))
-		num = ft_stack_max(stack);
-	else
-		num = -(ft_stack_min(stack));
+	num = ft_max_i(stack);
 	while (((num >> bit) & 1) == 0)
 		bit--;
 	return (bit);
+}
+
+void	ft_stack_indexing(t_stack **stack)
+{
+	t_stack	*stack_ti;
+	t_stack	*stack_tj;
+	int		i;
+	int		j;
+
+	stack_ti = *stack;
+	stack_tj = *stack;
+	i = 0;
+	while (i++ < ft_stack_len(stack_ti))
+	{
+		j = 0;
+		while (j++ < ft_stack_len(stack_tj))
+		{
+			if (stack_ti->data > stack_tj->data)
+				stack_ti->index++;
+			stack_tj = stack_tj->next;
+		}
+		stack_ti = stack_ti->next;
+	}
 }

@@ -6,16 +6,15 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:23:31 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 20:23:34 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:40:55 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_exit_error(int code)
+void	ft_exit_error(void)
 {
 //	system ("leaks push_swap");
-	code = 0;
 	write(2, "Error\n", 6);
 	exit(0);
 }
@@ -53,11 +52,11 @@ int	ft_myatoi(const char *str)
 		i++;
 	}
 	if (!str[i])
-		ft_exit_error(2);
+		ft_exit_error();
 	while ((str[i] != '\0') && (str[i] >= 48 && str[i] <= 57))
 		atoi = atoi * 10 + (str[i++] - 48);
 	if (((atoi * sign) < INT_MIN) || ((atoi * sign) > INT_MAX))
-		ft_exit_error(5);
+		ft_exit_error();
 	return (atoi * sign);
 }
 

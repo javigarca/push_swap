@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:04:23 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 20:24:19 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:48:00 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ void	ft_load_nodes(t_dtint dt, t_stack **fnode, t_stack **lnode, \
 	{
 		next_node = (t_stack *) malloc(sizeof (t_stack));
 		if (!next_node)
-			ft_exit_error(4);
+			ft_exit_error();
 		next_node->data = dt.nb[i];
+		next_node->index = 0;
 		next_node->next = *fnode;
 		(*stack)->next = next_node;
 		*lnode = *stack;
@@ -42,8 +43,9 @@ t_stack	*ft_build_stack(t_dtint dt)
 
 	stack = (t_stack *) malloc(sizeof (t_stack));
 	if (!stack)
-		ft_exit_error(4);
+		ft_exit_error();
 	stack->data = dt.nb[0];
+	stack->index = 0;
 	stack->next = stack;
 	stack->prev = stack;
 	first_node = stack;
