@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/05 12:03:56 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/06 21:54:24 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 typedef struct s_stack
 {
 	int				data;
-	size_t			index;
+	int				index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }			t_stack;
@@ -77,4 +77,10 @@ int		ft_find_bit(t_stack *stack);
 void	ft_stack_indexing(t_stack **stack);
 // ps_sorting_3.c //
 int		ft_max_i(t_stack *stack);
+// ps_sorting_100.c //
+void	ft_stack_indiord(t_stack **stack);
+int		ft_stack_min_i(t_stack *stack);
+int		ft_stack_min_i2(t_stack *stack);
+void	ft_sort_100(t_stack *stack);
+int		ft_abs(int x);
 #endif

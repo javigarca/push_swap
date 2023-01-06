@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:02:11 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 19:34:50 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:02:04 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ void	ft_swap_2(t_stack **stack, int op)
 	temp = (*stack)->data;
 	(*stack)->data = (*stack)->next->data;
 	(*stack)->next->data = temp;
+	temp = (*stack)->index;
+	(*stack)->index = (*stack)->next->index;
+	(*stack)->next->index = temp;
 	if (op)
 		ft_pr_action(op);
 }
