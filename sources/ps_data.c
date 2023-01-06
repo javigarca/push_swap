@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:19:28 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/04 18:20:03 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:18:43 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ t_dtint	ft_data_load(char **data)
 		datareturn.nb[i] = ft_myatoi(argument[i]);
 		free(argument[i++]);
 	}
-	free(arguments);
+	free(argument);
+//	free(arguments);
 	datareturn.len = i;
 	ft_check_dupl(datareturn.nb, datareturn.len);
 	return (datareturn);
@@ -65,12 +66,24 @@ char	*ft_args_join(char **data)
 	while (data[i])
 		total += ft_strlen(data[i++]);
 	i = 1;
-	join = (char *) malloc(sizeof (char *) * total + 1);
+	join = (char *) malloc(sizeof(char) * total + 1);
+	if (!join)
+		ft_exit_error();
+//	while (data[i])
+//	{
+//		join = ft_strjoin(join, data[i++]);
+//		join = ft_strjoin(join, " ");
+//	}
 	while (data[i])
 	{
-		join = ft_strjoin(join, data[i++]);
-		join = ft_strjoin(join, " ");
+		ft_strlcat(join, data[i], ft_strlen(join) + ft_strlen(data[i]) + 1);
+//		printf("\nJOIN1: %s", join);
+		ft_strlcat(join, " ", ft_strlen(join) + 2);
+//		printf("\nJOIN22: %s", join);
+		i++;
 	}
+//	printf("\nTOTAL: %s", join);
+//	join = "1 2 3 4 5 6 8 9 10 45 24 31 20 -4 0 43 40";
 	return (join);
 }
 

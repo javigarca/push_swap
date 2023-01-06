@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:57:51 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 19:47:09 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:17:42 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	main(int argc, char **argv)
 		if (ft_stack_len(stack_a) > 5)
 			ft_sort_big(stack_a);
 	}
-	stack_a = NULL;
-	free(stack_a);
+//	ft_free_stack(&stack_a);
+//	free(stack_a);
 	free(data.nb);
 //	system("leaks push_swap");
 	return (0);
@@ -51,4 +51,21 @@ void	ft_print_int(int *dt, int len)
 		printf("int %d: %d\n", i, dt[i]);
 		i++;
 	}
+}
+
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*head;
+	int elem;
+
+	elem = ft_stack_len(*stack);
+	head = *stack;
+	while (elem)
+	{
+		free(head);
+		head = (*stack)->next;
+		elem--;
+	}
+	stack = NULL;
+	//free(*stack);
 }

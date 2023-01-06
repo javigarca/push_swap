@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/04 18:15:36 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/05 12:03:56 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_dtint
 }			t_dtint;
 // push_swap //
 void	ft_print_int(int *dt, int len);
+void	ft_free_dtint(t_dtint *dt);
+void	ft_free_stack(t_stack **stack);
 // ps_data //
 t_dtint	ft_data_load(char **data);
 void	ft_check_dupl(int *data, int len);
