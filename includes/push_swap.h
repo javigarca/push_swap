@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/06 21:54:24 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/06 23:45:07 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 {
 	int				data;
 	int				index;
+	int				key;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }			t_stack;
@@ -74,13 +75,15 @@ void	ft_sort_4(t_stack *stack);
 void	ft_sort_5(t_stack *stack);
 int		ft_stack_min(t_stack *stack);
 int		ft_find_bit(t_stack *stack);
-void	ft_stack_indexing(t_stack **stack);
+void	ft_stack_keying(t_stack **stack);
 // ps_sorting_3.c //
 int		ft_max_i(t_stack *stack);
+int		ft_abs(int x);
+int		ft_best_op_min(t_stack *stack, int min);
 // ps_sorting_100.c //
-void	ft_stack_indiord(t_stack **stack);
+void	ft_stack_indexing(t_stack **stack);
 int		ft_stack_min_i(t_stack *stack);
 int		ft_stack_min_i2(t_stack *stack);
+int		ft_best_op(t_stack *stack, int min, int min2);
 void	ft_sort_100(t_stack *stack);
-int		ft_abs(int x);
 #endif

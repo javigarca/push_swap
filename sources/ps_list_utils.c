@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:04:23 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/05 14:32:32 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/06 22:26:15 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,14 @@ void	ft_print_stack(t_stack *stack)
 		return ;
 	current = stack;
 	printf("%i*", current->data);
+	if (current->index)
+		printf("-%i-", current->index);
 	current = current->next;
 	while (current != stack)
 	{
 		printf("%i*", current->data);
+		if (current->index)
+			printf("-%i-", current->index);
 		current = current->next;
 	}
 }

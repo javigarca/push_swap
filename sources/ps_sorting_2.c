@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 23:13:46 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/04 18:47:35 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/06 23:10:24 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	ft_find_bit(t_stack *stack)
 	return (bit);
 }
 
-void	ft_stack_indexing(t_stack **stack)
+void	ft_stack_keying(t_stack **stack)
 {
 	t_stack	*stack_ti;
 	t_stack	*stack_tj;
@@ -102,7 +102,7 @@ void	ft_stack_indexing(t_stack **stack)
 		while (j++ < ft_stack_len(stack_tj))
 		{
 			if (stack_ti->data > stack_tj->data)
-				stack_ti->index++;
+				stack_ti->key++;
 			stack_tj = stack_tj->next;
 		}
 		stack_ti = stack_ti->next;

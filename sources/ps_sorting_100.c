@@ -6,13 +6,13 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:03:39 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/06 22:15:07 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/06 23:48:32 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_stack_inord(t_stack **stack)
+void	ft_stack_indexing(t_stack **stack)
 {
 	int		ord;
 	t_stack *stack_i;
@@ -105,32 +105,34 @@ int	ft_best_op(t_stack *stack, int min, int min2)
 
 void	ft_sort_100(t_stack *stack)
 {
-/*	int		min;
+	int		min;
 	int		min2;
 	int		best;
 	t_stack	*stack_b;
 
-	ft_stack_inord(&stack);
+	ft_stack_indexing(&stack);
 	stack_b = NULL;
-*/	ft_sort_big(stack);
-/*	while (stack)
+//	ft_print_stack(stack);
+	while (stack)
 	{
+		ft_stack_indexing(&stack);
 		min = ft_stack_min_i(stack);
-			printf("MIN: %i\n", min);
+//			printf("\nMIN: %i\n", min);
 		min2 = ft_stack_min_i2(stack);
-			printf("MIN2: %i\n", min2);
-		best = ft_best_op(stack, min, min2);
-			printf("BEST: %i\n", best);
+//			printf("MIN2: %i\n", min2);
+//		best = ft_best_op(stack, min, min2);
+		best = ft_best_op_min(stack, min);
+//			printf("BEST: %i\n", best);
 		while (stack->index != ft_abs(best))
 		{
-			printf("ABS: %i\n", ft_abs(best));
-			ft_exit_error();
+///			printf("ABS: %i\n", ft_abs(best));
+//			ft_exit_error();
 			if (best > 0)
-//				ft_first2last(&stack, 6);
-				printf("mayor");
+				ft_first2last(&stack, 6);
+//				printf("mayor");
 			else
-//				ft_last2first(&stack, 9);
-				printf("MENOR");
+				ft_last2first(&stack, 9);
+//				printf("MENOR");
 		}
 		ft_push2other(&stack, &stack_b, 5);
 	}
@@ -139,13 +141,5 @@ void	ft_sort_100(t_stack *stack)
 		if (stack_b->data < stack_b->next->data)
 			ft_swap_2(&stack_b, 2);
 		ft_push2other(&stack_b, &stack, 4);
-	}*/
-}
-
-int ft_abs(int x)
-{
-	if (x < 0)
-		return (-(x));
-	else
-		return ((x));
+	}
 }

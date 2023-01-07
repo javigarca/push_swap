@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:21:33 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/04 18:46:49 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/06 23:09:32 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_sort_pos(t_stack **stack_a, t_stack **stack_b, int bit)
 	slen = ft_stack_len(*stack_a);
 	while (slen)
 	{
-		if ((((*stack_a)->index >> bit) & 1) == 1)
+		if ((((*stack_a)->key >> bit) & 1) == 1)
 			ft_first2last(stack_a, 6);
 		else
 			ft_push2other(stack_a, stack_b, 5);
@@ -87,7 +87,7 @@ void	ft_sort_big(t_stack *stack)
 	int		bit;
 	int		maxbit;
 
-	ft_stack_indexing(&stack);
+	ft_stack_keying(&stack);
 	maxbit = ft_find_bit(stack);
 	stack_b = NULL;
 	bit = 0;
