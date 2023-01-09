@@ -6,33 +6,24 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:02:11 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/06 20:02:04 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:09:46 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_issorted(t_stack *stack)
+void	ft_first2last2(t_stack **stack_a, t_stack **stack_b, int op)
 {
-	t_stack	*head;
-	int		sort;
-
-	head = stack;
-	stack = stack->next;
-	sort = 0;
-	while (stack != head)
-	{
-		if (stack->data < stack->prev->data)
-			sort++;
-		stack = stack->next;
-	}
-	if (!sort)
-		return (1);
-	return (0);
+	ft_first2last(stack_a, 0);
+	ft_first2last(stack_b, 0);
+	if (op)
+		ft_pr_action(op);
 }
 
 void	ft_first2last(t_stack **stack, int op)
 {
+	if (!(*stack))
+		return;
 	*stack = (*stack)->next;
 	if (op)
 		ft_pr_action(op);
@@ -40,6 +31,8 @@ void	ft_first2last(t_stack **stack, int op)
 
 void	ft_last2first(t_stack **stack, int op)
 {
+	if (!(*stack))
+		return;
 	*stack = (*stack)->prev;
 	if (op)
 		ft_pr_action(op);

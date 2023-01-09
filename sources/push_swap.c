@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:57:51 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/06 22:23:15 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:00:56 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ int	main(int argc, char **argv)
 		if (ft_stack_len(stack_a) > 5)
 	//	 	ft_sort_big(stack_a);
 			ft_sort_100(stack_a);
+	//	stack_a=ft_merge_sort(&stack_a);
+//			ft_sort_quick(&stack_a);
 	}
+//	ft_print_stack(stack_a);
 //	ft_free_stack(&stack_a);
 //	free(stack_a);
 	free(data.nb);
@@ -69,4 +72,23 @@ void	ft_free_stack(t_stack **stack)
 	}
 	stack = NULL;
 	//free(*stack);
+}
+
+int	ft_issorted(t_stack *stack)
+{
+	t_stack	*head;
+	int		sort;
+
+	head = stack;
+	stack = stack->next;
+	sort = 0;
+	while (stack != head)
+	{
+		if (stack->data < stack->prev->data)
+			sort++;
+		stack = stack->next;
+	}
+	if (!sort)
+		return (1);
+	return (0);
 }

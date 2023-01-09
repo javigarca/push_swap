@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:03:39 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/06 23:48:32 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:21:53 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,41 +105,41 @@ int	ft_best_op(t_stack *stack, int min, int min2)
 
 void	ft_sort_100(t_stack *stack)
 {
-	int		min;
 	int		min2;
+	int		min;
 	int		best;
+//	int		len;
+//	int		i;
 	t_stack	*stack_b;
 
+	ft_stack_keying(&stack);
 	ft_stack_indexing(&stack);
+//	len = ft_stack_len(stack);
 	stack_b = NULL;
-//	ft_print_stack(stack);
-	while (stack)
+//	i = 1;
+	while (ft_stack_len(stack) > 3)
 	{
-		ft_stack_indexing(&stack);
 		min = ft_stack_min_i(stack);
-//			printf("\nMIN: %i\n", min);
 		min2 = ft_stack_min_i2(stack);
-//			printf("MIN2: %i\n", min2);
-//		best = ft_best_op(stack, min, min2);
-		best = ft_best_op_min(stack, min);
-//			printf("BEST: %i\n", best);
+		best = ft_best_op(stack, min, min2);
+//		write(1, "llegado", 7);
+//		printf("best: %i", best);
 		while (stack->index != ft_abs(best))
 		{
-///			printf("ABS: %i\n", ft_abs(best));
-//			ft_exit_error();
 			if (best > 0)
 				ft_first2last(&stack, 6);
-//				printf("mayor");
 			else
 				ft_last2first(&stack, 9);
-//				printf("MENOR");
 		}
+//		if (stack->key < 
 		ft_push2other(&stack, &stack_b, 5);
+		ft_stack_indexing(&stack);
 	}
+	ft_sort_3(&stack);
 	while (stack_b)
-	{
-		if (stack_b->data < stack_b->next->data)
-			ft_swap_2(&stack_b, 2);
 		ft_push2other(&stack_b, &stack, 4);
-	}
+//	if (ft_issorted(stack))
+//		write(1, "\nBIEN", 4);
+//	else
+//		write(1, "\nMAAL", 4);*/
 }
