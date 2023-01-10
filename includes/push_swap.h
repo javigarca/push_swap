@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/09 17:09:38 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:44:03 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,21 @@ void	ft_stack_keying(t_stack **stack);
 int		ft_max_i(t_stack *stack);
 int		ft_abs(int x);
 int		ft_best_op_min(t_stack *stack, int min);
-// ps_sorting_100.c //
+// ps_sorting_4.c //
 void	ft_stack_indexing(t_stack **stack);
 int		ft_stack_min_i(t_stack *stack);
 int		ft_stack_min_i2(t_stack *stack);
 int		ft_best_op(t_stack *stack, int min, int min2);
 void	ft_sort_100(t_stack *stack);
+// ps_sorting_new.c //
+int		ft_stack_max_k(t_stack *stack);
+void	ft_sort_new(t_stack *stack);
 // ps_sort_merge.c //
 //void	ft_merge_sort(t_stack **stack);
 //void	ft_merge(t_stack **left, t_stack **right);
-t_stack *ft_split_stack(t_stack **stack);
-t_stack	*ft_merge(t_stack **first, t_stack **second);
-t_stack	*ft_merge_sort(t_stack **stack);
+//t_stack *ft_split_stack(t_stack **stack);
+//t_stack	*ft_merge(t_stack **first, t_stack **second);
+//t_stack	*ft_merge_sort(t_stack **stack);
 // ps_sort_quick.c //
-void	ft_sort_quick(t_stack **stack);
+//void	ft_sort_quick(t_stack **stack);
 #endif

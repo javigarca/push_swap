@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:03:39 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/09 17:21:53 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:41:48 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,22 +108,16 @@ void	ft_sort_100(t_stack *stack)
 	int		min2;
 	int		min;
 	int		best;
-//	int		len;
-//	int		i;
 	t_stack	*stack_b;
 
 	ft_stack_keying(&stack);
 	ft_stack_indexing(&stack);
-//	len = ft_stack_len(stack);
 	stack_b = NULL;
-//	i = 1;
 	while (ft_stack_len(stack) > 3)
 	{
 		min = ft_stack_min_i(stack);
 		min2 = ft_stack_min_i2(stack);
 		best = ft_best_op(stack, min, min2);
-//		write(1, "llegado", 7);
-//		printf("best: %i", best);
 		while (stack->index != ft_abs(best))
 		{
 			if (best > 0)
@@ -131,13 +125,23 @@ void	ft_sort_100(t_stack *stack)
 			else
 				ft_last2first(&stack, 9);
 		}
-//		if (stack->key < 
 		ft_push2other(&stack, &stack_b, 5);
 		ft_stack_indexing(&stack);
 	}
 	ft_sort_3(&stack);
+//	ft_stack_keying(&stack_b);
 	while (stack_b)
-		ft_push2other(&stack_b, &stack, 4);
+	{
+//		printf("key : %i - keynxt: %i\n",stack_b->key, stack_b->next->key);
+		if (stack_b->key < stack_b->next->key)
+		{
+			ft_swap_2(&stack_b, 2);
+//			printf("k: %i - kn: %i\n",stack_b->key, stack_b->next->key);
+			stack_b = (stack_b->next);
+		}
+		else
+			ft_push2other(&stack_b, &stack, 4);
+	}
 //	if (ft_issorted(stack))
 //		write(1, "\nBIEN", 4);
 //	else
