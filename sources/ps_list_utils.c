@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:04:23 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/10 15:07:35 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:17:06 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,20 @@ void	ft_print_stack(t_stack *stack)
 	if (!stack)
 		return ;
 	current = stack;
-	printf("%i*", current->data);
+	printf("\n*%i*", current->data);
 	printf("i%i-", current->index);
-	printf("k%i\n", current->key);
+	printf("k%i-", current->key);
 	current = current->next;
 	while (current != stack)
 	{
-		printf("*%i", current->data);
+		printf("*%i*", current->data);
 		if (current->index)
 			printf("i%i-", current->index);
 		if (current->key)
-			printf("k%i\n", current->key);
+			printf("k%i-", current->key);
 		current = current->next;
 	}
+	printf("\n");
 }
 
 void	ft_delete_node(t_stack **nodel)
