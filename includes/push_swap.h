@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/10 21:08:19 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:35:52 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_delete_node(t_stack **nodel);
 void	ft_print_stack(t_stack *node);
 int		ft_stack_len(t_stack *stack);
 // ps_actions //
-void    ft_first2last2(t_stack **stack_a, t_stack **stack_b, int op);
+void	ft_first2last2(t_stack **stack_a, t_stack **stack_b, int op);
 void	ft_first2last(t_stack **stack, int op);
 void	ft_last2first(t_stack **stack, int op);
 void	ft_swap_2(t_stack **stack, int op);
@@ -80,22 +80,14 @@ void	ft_stack_keying(t_stack **stack);
 // ps_sorting_3.c //
 int		ft_max_i(t_stack *stack);
 int		ft_abs(int x);
-void	ft_best_op_min(t_stack **stack, int min);
+void	ft_best_op_a(t_stack **stack, int min);
+void	ft_best_op_b(t_stack **stack, int max);
 // ps_sorting_4.c //
 void	ft_stack_indexing(t_stack **stack);
 int		ft_stack_min_i(t_stack *stack);
 int		ft_stack_min_i2(t_stack *stack);
 int		ft_best_op(t_stack *stack, int min, int min2);
-void	ft_sort_100(t_stack *stack);
 // ps_sorting_new.c //
 int		ft_stack_max_k(t_stack *stack);
-void	ft_sort_new(t_stack *stack);
-// ps_sort_merge.c //
-//void	ft_merge_sort(t_stack **stack);
-//void	ft_merge(t_stack **left, t_stack **right);
-//t_stack *ft_split_stack(t_stack **stack);
-//t_stack	*ft_merge(t_stack **first, t_stack **second);
-//t_stack	*ft_merge_sort(t_stack **stack);
-// ps_sort_quick.c //
-//void	ft_sort_quick(t_stack **stack);
+void	ft_sort_new(t_stack *stack, size_t chunks);
 #endif

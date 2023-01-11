@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:57:51 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/10 13:44:26 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:29:22 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ int	main(int argc, char **argv)
 			ft_sort_4(stack_a);
 		if (ft_stack_len(stack_a) == 5)
 			ft_sort_5(stack_a);
-		if (ft_stack_len(stack_a) > 5)
-//		 	ft_sort_big(stack_a);
-//			ft_sort_100(stack_a);
-			ft_sort_new(stack_a);
-	//	stack_a=ft_merge_sort(&stack_a);
-//			ft_sort_quick(&stack_a);
+		if ((ft_stack_len(stack_a) > 5) && (ft_stack_len(stack_a) < 101))
+			ft_sort_new(stack_a, 4);
+		if (ft_stack_len(stack_a) > 100)
+//			ft_sort_new(stack_a, 11);
+			ft_sort_big(stack_a);
 	}
 //	ft_print_stack(stack_a);
 //	ft_free_stack(&stack_a);

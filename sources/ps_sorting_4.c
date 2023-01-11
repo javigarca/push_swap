@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_sorting_100.c                                   :+:      :+:    :+:   */
+/*   ps_sorting_4.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:03:39 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/09 17:41:48 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:35:45 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ void	ft_stack_indexing(t_stack **stack)
 	int		ord;
 	t_stack *stack_i;
 
+	if (!stack)
+		return;
 	ord = 1;
 	stack_i = *stack;
 	while (ord <= ft_stack_len(stack_i))
 	{
 		stack_i->index = ord++;
-//		printf("\nvalor: %i --- orden: %i", stack_i->data, stack_i->index); 
 		stack_i = stack_i->next;
 	}
 }
@@ -100,50 +101,4 @@ int	ft_best_op(t_stack *stack, int min, int min2)
 	if (best > (len/2))
 		best *= -1;
 	return (best);
-}
-
-
-void	ft_sort_100(t_stack *stack)
-{
-	int		min2;
-	int		min;
-	int		best;
-	t_stack	*stack_b;
-
-	ft_stack_keying(&stack);
-	ft_stack_indexing(&stack);
-	stack_b = NULL;
-	while (ft_stack_len(stack) > 3)
-	{
-		min = ft_stack_min_i(stack);
-		min2 = ft_stack_min_i2(stack);
-		best = ft_best_op(stack, min, min2);
-		while (stack->index != ft_abs(best))
-		{
-			if (best > 0)
-				ft_first2last(&stack, 6);
-			else
-				ft_last2first(&stack, 9);
-		}
-		ft_push2other(&stack, &stack_b, 5);
-		ft_stack_indexing(&stack);
-	}
-	ft_sort_3(&stack);
-//	ft_stack_keying(&stack_b);
-	while (stack_b)
-	{
-//		printf("key : %i - keynxt: %i\n",stack_b->key, stack_b->next->key);
-		if (stack_b->key < stack_b->next->key)
-		{
-			ft_swap_2(&stack_b, 2);
-//			printf("k: %i - kn: %i\n",stack_b->key, stack_b->next->key);
-			stack_b = (stack_b->next);
-		}
-		else
-			ft_push2other(&stack_b, &stack, 4);
-	}
-//	if (ft_issorted(stack))
-//		write(1, "\nBIEN", 4);
-//	else
-//		write(1, "\nMAAL", 4);*/
 }
