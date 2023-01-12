@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:02:11 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/09 17:09:46 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:50:04 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_first2last2(t_stack **stack_a, t_stack **stack_b, int op)
 void	ft_first2last(t_stack **stack, int op)
 {
 	if (!(*stack))
-		return;
+		return ;
 	*stack = (*stack)->next;
 	if (op)
 		ft_pr_action(op);
@@ -32,7 +32,7 @@ void	ft_first2last(t_stack **stack, int op)
 void	ft_last2first(t_stack **stack, int op)
 {
 	if (!(*stack))
-		return;
+		return ;
 	*stack = (*stack)->prev;
 	if (op)
 		ft_pr_action(op);

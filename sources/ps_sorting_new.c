@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:03:39 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 10:57:21 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:08:21 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_stack_max_k(t_stack *stack)
 {
 	int	i;
 	int	max;
-	int maxk;
+	int	maxk;
 
 	if (!stack)
 		return (0);
@@ -42,7 +42,7 @@ void	ft_sort_new(t_stack *stack, size_t chunks)
 	t_stack	*stack_b;
 
 	if (!stack)
-		return;
+		return ;
 	tlen = ft_stack_len(stack);
 	chunk = tlen / chunks;
 	stack_b = NULL;
@@ -61,13 +61,11 @@ void	ft_sort_new(t_stack *stack, size_t chunks)
 			else
 				stack = stack->next;
 		}
-		chunk += tlen/chunks;
+		chunk += tlen / chunks;
 	}
-//	printf("eN B*-*-*---*-*----*\n");
 	ft_stack_indexing(&stack_b);
 	while (stack_b != NULL)
 	{
-//		ft_print_stack(stack_b);
 		if (stack_b->key == ft_stack_max_k(stack_b))
 		{
 			ft_best_op_b(&stack_b, stack_b->index);
@@ -77,6 +75,5 @@ void	ft_sort_new(t_stack *stack, size_t chunks)
 		else
 			stack_b = stack_b->next;
 	}
-	if (!(ft_issorted(stack)))
-		ft_print_stack(stack);
+	ft_stack_free(&stack_b);
 }

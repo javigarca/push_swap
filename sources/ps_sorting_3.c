@@ -6,18 +6,35 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:21:33 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 10:20:53 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:15:18 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_max_i(t_stack *stack)
+int	ft_max_k(t_stack *stack)
 {
-	return (ft_stack_len(stack) - 1);
+	int	i;
+	int	max;
+	int	maxk;
+
+	if (!stack)
+		return (0);
+	max = INT_MIN;
+	i = -1;
+	while (i++ < ft_stack_len(stack))
+	{
+		if (stack->data > max)
+		{
+			max = stack->data;
+			maxk = stack->key;
+		}
+		stack = stack->next;
+	}
+	return (maxk);
 }
 
-int ft_abs(int x)
+int	ft_abs(int x)
 {
 	if (x < 0)
 		return (-(x));
@@ -27,12 +44,12 @@ int ft_abs(int x)
 
 void	ft_best_op_a(t_stack **stack, int min)
 {
-	int len;
+	int	len;
 
 	len = ft_stack_len(*stack);
 	if (len == 1)
-		return;
-	if (min <= (len/2))
+		return ;
+	if (min <= (len / 2))
 	{
 		while (min-- > 1)
 		{
@@ -50,14 +67,15 @@ void	ft_best_op_a(t_stack **stack, int min)
 		}
 	}
 }
+
 void	ft_best_op_b(t_stack **stack, int max)
 {
-	int len;
+	int	len;
 
 	len = ft_stack_len(*stack);
 	if (len == 1)
-		return;
-	if (max <= (len/2))
+		return ;
+	if (max <= (len / 2))
 	{
 		while (max-- > 1)
 		{

@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 23:13:46 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/06 23:10:24 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:56:59 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_sort_4(t_stack *stack)
 	ft_push2other(&stack, &stack_b, 5);
 	ft_sort_3(&stack);
 	ft_push2other(&stack_b, &stack, 4);
-	free(stack);
+	ft_stack_free(&stack_b);
 }
 
 void	ft_sort_5(t_stack *stack)
@@ -53,7 +53,7 @@ void	ft_sort_5(t_stack *stack)
 	ft_push2other(&stack_b, &stack, 4);
 	ft_first2last(&stack, 6);
 	ft_push2other(&stack_b, &stack, 4);
-	free(stack);
+	ft_stack_free(&stack_b);
 }
 
 int	ft_stack_min(t_stack *stack)
@@ -79,10 +79,10 @@ int	ft_find_bit(t_stack *stack)
 	int	num;
 	int	bit;
 
-	bit = 31;
-	num = ft_max_i(stack);
-	while (((num >> bit) & 1) == 0)
-		bit--;
+	bit = 0;
+	num = ft_max_k(stack);
+	while ((num >> bit) != 0)
+		bit++;
 	return (bit);
 }
 

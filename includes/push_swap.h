@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 11:35:52 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:16:20 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef struct s_dtint
 	int	len;
 }			t_dtint;
 // push_swap //
-void	ft_print_int(int *dt, int len);
+void	ft_sort_select(t_stack *stack_a);
 void	ft_free_dtint(t_dtint *dt);
-void	ft_free_stack(t_stack **stack);
+void	ft_stack_free(t_stack **stack);
 int		ft_issorted(t_stack *stack);
 // ps_data //
 t_dtint	ft_data_load(char **data);
@@ -78,7 +78,7 @@ int		ft_stack_min(t_stack *stack);
 int		ft_find_bit(t_stack *stack);
 void	ft_stack_keying(t_stack **stack);
 // ps_sorting_3.c //
-int		ft_max_i(t_stack *stack);
+int		ft_max_k(t_stack *stack);
 int		ft_abs(int x);
 void	ft_best_op_a(t_stack **stack, int min);
 void	ft_best_op_b(t_stack **stack, int max);

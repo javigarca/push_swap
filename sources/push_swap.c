@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:57:51 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 11:29:22 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 19:00:00 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,30 @@ int	main(int argc, char **argv)
 		exit(0);
 	data = ft_data_load(argv);
 	stack_a = ft_build_stack(data);
-	if (ft_issorted(stack_a))
-		return (0);
-	else
+	if (!ft_issorted(stack_a))
 	{
 		ft_stack_keying(&stack_a);
 		ft_stack_indexing(&stack_a);
-		if (ft_stack_len(stack_a) < 4)
-			ft_sort_3(&stack_a);
-		if (ft_stack_len(stack_a) == 4)
-			ft_sort_4(stack_a);
-		if (ft_stack_len(stack_a) == 5)
-			ft_sort_5(stack_a);
-		if ((ft_stack_len(stack_a) > 5) && (ft_stack_len(stack_a) < 101))
-			ft_sort_new(stack_a, 4);
-		if (ft_stack_len(stack_a) > 100)
-//			ft_sort_new(stack_a, 11);
-			ft_sort_big(stack_a);
+		ft_sort_select(stack_a);
 	}
-//	ft_print_stack(stack_a);
-//	ft_free_stack(&stack_a);
-//	free(stack_a);
+	ft_stack_free(&stack_a);
 	free(data.nb);
 //	system("leaks push_swap");
 	return (0);
+}
+
+void	ft_sort_select(t_stack *stack_a)
+{
+	if (ft_stack_len(stack_a) < 4)
+		ft_sort_3(&stack_a);
+	if (ft_stack_len(stack_a) == 4)
+		ft_sort_4(stack_a);
+	if (ft_stack_len(stack_a) == 5)
+		ft_sort_5(stack_a);
+	if ((ft_stack_len(stack_a) > 5) && (ft_stack_len(stack_a) < 101))
+		ft_sort_new(stack_a, 4);
+	if (ft_stack_len(stack_a) > 100)
+		ft_sort_big(stack_a);
 }
 
 void	ft_print_int(int *dt, int len)
@@ -59,21 +59,23 @@ void	ft_print_int(int *dt, int len)
 	}
 }
 
-void	ft_free_stack(t_stack **stack)
+void	ft_stack_free(t_stack **list)
 {
-	t_stack	*head;
-	int elem;
+	t_stack	*next;
+	t_stack	*tmp;
 
-	elem = ft_stack_len(*stack);
-	head = *stack;
-	while (elem)
+	if (list && *list)
 	{
-		free(head);
-		head = (*stack)->next;
-		elem--;
+		next = (*list)->next;
+		while (next && (next != *list))
+		{
+			tmp = next;
+			next = next->next;
+			free(tmp);
+		}
+		free(*list);
+		*list = NULL;
 	}
-	stack = NULL;
-	//free(*stack);
 }
 
 int	ft_issorted(t_stack *stack)

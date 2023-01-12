@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:21:33 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 11:48:17 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:57:05 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,12 @@ void	ft_sort_big(t_stack *stack)
 	maxbit = ft_find_bit(stack);
 	stack_b = NULL;
 	bit = 0;
-	while (bit <= maxbit)
+	while (bit < maxbit)
 	{
 		ft_sort_pos(&stack, &stack_b, bit);
 		bit++;
 	}
+	ft_stack_free(&stack_b);
 }
 
 void	ft_sort_3(t_stack **stack)

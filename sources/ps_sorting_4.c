@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:03:39 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 11:35:45 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:55:04 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	ft_stack_indexing(t_stack **stack)
 {
 	int		ord;
-	t_stack *stack_i;
+	t_stack	*stack_i;
 
 	if (!stack)
-		return;
+		return ;
 	ord = 1;
 	stack_i = *stack;
 	while (ord <= ft_stack_len(stack_i))
@@ -55,7 +55,7 @@ int	ft_stack_min_i2(t_stack *stack)
 	int	min;
 	int	i;
 	int	prev;
-	int mini;
+	int	mini;
 
 	if (!stack)
 		return (0);
@@ -78,19 +78,19 @@ int	ft_stack_min_i2(t_stack *stack)
 
 int	ft_best_op(t_stack *stack, int min, int min2)
 {
-	int len;
-	int valmin;
+	int	len;
+	int	valmin;
 	int	valmin2;
-	int best;
+	int	best;
 
 	if (min == min2)
 		return (min);
 	len = ft_stack_len(stack);
-	if (min < (len-min))
+	if (min < (len - min))
 		valmin = min;
 	else
 		valmin = len - min;
-	if (min2 < (len-min2))
+	if (min2 < (len - min2))
 		valmin2 = min2;
 	else
 		valmin2 = len - min2;
@@ -98,7 +98,7 @@ int	ft_best_op(t_stack *stack, int min, int min2)
 		best = min;
 	else
 		best = min2;
-	if (best > (len/2))
+	if (best > (len / 2))
 		best *= -1;
 	return (best);
 }
