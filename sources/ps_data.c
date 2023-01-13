@@ -6,112 +6,125 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:19:28 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 15:50:58 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:47:18 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_dtint	ft_data_load(char **data)
+void	ft_data_validation(char **data, int argc)
 {
-	char	*arguments;
 	char	**argument;
-	t_dtint	datareturn;
+	char	**temp;
 	int		i;
+	long	chk;
 
-	i = 0;
-	arguments = ft_args_join(data);
-	ft_check_num(arguments);
-	datareturn.nb = (int *) malloc(sizeof (int *) * ft_num_sub(arguments, ' '));
-	argument = ft_split(arguments, ' ');
-	while (argument[i])
+	i = 1;
+	while (i < argc)
 	{
-		datareturn.nb[i] = ft_myatoi(argument[i]);
-		free(argument[i++]);
+		argument = ft_split(data[i], ' ');
+		temp = argument;
+		while (*argument)
+		{
+			if (!(ft_is_all_num(*argument)) || (ft_is_all_space(*argument)))
+				ft_exit_error();
+			chk = ft_myatoi(*argument);
+			if ((chk < INT_MIN) || (chk > INT_MAX))
+				ft_exit_error();
+			free(*argument);
+			argument++;
+		}
+		free(temp);
+		i++;
 	}
-	free(argument);
-	free(arguments);
-	datareturn.len = i;
-	ft_check_dupl(datareturn.nb, datareturn.len);
-	return (datareturn);
 }
 
-void	ft_check_dupl(int *data, int len)
+int	ft_data_duplication(t_stack *stack)
 {
-	int	i;
-	int	k;
+	int		i;
+	int		k;
+	int		len;
+	t_stack *temp;
 
 	k = 0;
 	i = 0;
-	while (i < len)
+	len = ft_stack_len(stack);
+	temp = stack;
+	while (i < ft_stack_len(stack))
 	{
-		while (++k < len)
+		while (k < ft_stack_len(stack))
 		{
-			if ((data[i] == data[k]) && (i != k))
-				ft_exit_error();
+			if ((stack->data == temp->data) && (i != k))
+				return(1);
+			k++;
+			temp = temp->next;
 		}
 		k = 0;
+		stack = stack->next;
 		i++;
 	}
+	return (0);
 }
 
-char	*ft_args_join(char **data)
+int	ft_is_all_space(char *data)
 {
-	int		i;
-	char	*join;
-	int		total;
+	size_t	i;
+	char	*tmp;
 
-	i = 1;
-	total = 0;
-	while (data[i])
-		total += ft_strlen(data[i++]);
-	i = 1;
-	join = (char *) malloc(sizeof(char) * total + 1);
-	if (!join)
-		ft_exit_error();
-	while (data[i])
+	i = 0;
+	tmp = data;
+	while (*tmp)
 	{
-		ft_strlcat(join, data[i], ft_strlen(join) + ft_strlen(data[i]) + 1);
-		ft_strlcat(join, " ", ft_strlen(join) + ft_strlen(" ") + 1);
-		i++;
+		if ((*tmp > 8 && *tmp < 14) || (*tmp == 32))
+			i++;
+		tmp++;
 	}
-	return (join);
+	if (i == ft_strlen(data))
+		return (1);
+	return (0);
 }
 
-int	ft_num_sub(const char *str, char c)
-{
-	int	cont;
-	int	sub;
-
-	cont = 0;
-	sub = 0;
-	if (!str)
-		return (0);
-	while (*str != 00)
-	{
-		if (*str != c && sub == 0)
-		{
-			sub = 1;
-			cont++;
-		}
-		else if (*str == c)
-		{
-			sub = 0;
-		}
-		str++;
-	}
-	return (cont);
-}
-
-void	ft_check_num(char *data)
+int	ft_is_all_num(char *data)
 {
 	if (!data)
-		return ;
+		return (0);
 	while (*data)
 	{
 		if (!ft_isdigit(*data))
 			if (!ft_isspace(*data) && !ft_issign(*data))
-				ft_exit_error();
+				return (0);
 		data++;
 	}
+	return (1);
 }
+
+t_dtint	ft_data_load(char **data, int argc)
+{
+	char	**argument;
+	char	**temp;
+	t_dtint	datareturn;
+	int		i;
+	int		k;
+	int		elements;
+	
+	i = 1;
+	k = 0;
+	elements = ft_num_elem(data, argc);
+	datareturn.nb = (int *) malloc(sizeof (int *) * elements);
+	while (i < argc)
+	{
+		argument = ft_split(data[i++], ' ');
+		temp = argument;
+		while (*argument)
+		{
+			datareturn.nb[k] = ft_atoi(*argument);
+			free(*argument);
+			argument++;
+			k++;
+		}
+		free(temp);
+	}
+	datareturn.len = k;
+	return (datareturn);
+}
+

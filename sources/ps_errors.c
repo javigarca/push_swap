@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:23:31 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/03 20:40:55 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:54:08 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_issign(int c)
 	return (0);
 }
 
-int	ft_myatoi(const char *str)
+long	ft_myatoi(const char *str)
 {
 	int		i;
 	int		sign;
@@ -55,8 +55,6 @@ int	ft_myatoi(const char *str)
 		ft_exit_error();
 	while ((str[i] != '\0') && (str[i] >= 48 && str[i] <= 57))
 		atoi = atoi * 10 + (str[i++] - 48);
-	if (((atoi * sign) < INT_MIN) || ((atoi * sign) > INT_MAX))
-		ft_exit_error();
 	return (atoi * sign);
 }
 

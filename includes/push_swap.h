@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 18:16:20 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:38:39 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,21 @@ void	ft_free_dtint(t_dtint *dt);
 void	ft_stack_free(t_stack **stack);
 int		ft_issorted(t_stack *stack);
 // ps_data //
-t_dtint	ft_data_load(char **data);
-void	ft_check_dupl(int *data, int len);
-void	ft_check_num(char *data);
-char	*ft_args_join(char **data);
+void	ft_data_validation(char **data, int argc);
+int		ft_data_duplication(t_stack *stack);
+int		ft_is_all_space(char *data);
+int		ft_is_all_num(char *data);
+t_dtint	ft_data_load(char **data, int argc);
+//char	*ft_args_join(char **data);
+// ps_data_2 //
 int		ft_num_sub(const char *str, char c);
+int		ft_num_elem(char **data, int argc);
+int		ft_check_dupl(t_dtint data);
 // ps_error //
 void	ft_exit_error(void);
 int		ft_isspace(int c);
 int		ft_issign(int c);
-int		ft_myatoi(const char *str);
+long	ft_myatoi(const char *str);
 void	ft_pr_action(int op);
 // ps_list_utils //
 t_stack	*ft_build_stack(t_dtint dt);
