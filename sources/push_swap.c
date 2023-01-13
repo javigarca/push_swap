@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:57:51 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/13 10:54:17 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:18:45 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,14 @@ int	main(int argc, char **argv)
 		ft_exit_error();
 	}
 	stack_a = ft_build_stack(data);
-//	ft_print_stack(stack_a);
 	if (!ft_issorted(stack_a))
 	{
 		ft_stack_keying(&stack_a);
 		ft_stack_indexing(&stack_a);
-//		ft_print_stack(stack_a);
 		ft_sort_select(stack_a);
 	}
-//	printf("\n");
-//	ft_print_stack(stack_a);
+	free(data.nb);
 	ft_stack_free(&stack_a);
-//	system("leaks push_swap");
 	return (0);
 }
 

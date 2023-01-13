@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:03:39 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 18:08:21 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 20:54:47 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,33 +36,12 @@ int	ft_stack_max_k(t_stack *stack)
 
 void	ft_sort_new(t_stack *stack, size_t chunks)
 {
-	int		elem;
-	int		chunk;
-	int		tlen;
 	t_stack	*stack_b;
 
+	stack_b = NULL;
 	if (!stack)
 		return ;
-	tlen = ft_stack_len(stack);
-	chunk = tlen / chunks;
-	stack_b = NULL;
-	elem = 0;
-	while (stack)
-	{
-		while (elem <= chunk && stack)
-		{
-			if (stack->key <= chunk)
-			{
-				ft_best_op_a(&stack, stack->index);
-				ft_push2other(&stack, &stack_b, 5);
-				ft_stack_indexing(&stack);
-				elem++;
-			}
-			else
-				stack = stack->next;
-		}
-		chunk += tlen / chunks;
-	}
+	ft_sort_new_a(&stack, &stack_b, chunks);
 	ft_stack_indexing(&stack_b);
 	while (stack_b != NULL)
 	{
@@ -76,4 +55,31 @@ void	ft_sort_new(t_stack *stack, size_t chunks)
 			stack_b = stack_b->next;
 	}
 	ft_stack_free(&stack_b);
+}
+
+void	ft_sort_new_a(t_stack **stack_a, t_stack **stack_b, size_t chunks)
+{
+	int		elem;
+	int		chunk;
+	int		tlen;
+
+	tlen = ft_stack_len(*stack_a);
+	chunk = tlen / chunks;
+	elem = 0;
+	while (*stack_a)
+	{
+		while (elem <= chunk && *stack_a)
+		{
+			if ((*stack_a)->key <= chunk)
+			{
+				ft_best_op_a(stack_a, (*stack_a)->index);
+				ft_push2other(stack_a, stack_b, 5);
+				ft_stack_indexing(stack_a);
+				elem++;
+			}
+			else
+				*stack_a = (*stack_a)->next;
+		}
+		chunk += tlen / chunks;
+	}
 }

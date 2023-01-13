@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:19:28 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/13 10:47:18 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:21:15 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_data_duplication(t_stack *stack)
 	int		i;
 	int		k;
 	int		len;
-	t_stack *temp;
+	t_stack	*temp;
 
 	k = 0;
 	i = 0;
@@ -55,7 +55,7 @@ int	ft_data_duplication(t_stack *stack)
 		while (k < ft_stack_len(stack))
 		{
 			if ((stack->data == temp->data) && (i != k))
-				return(1);
+				return (1);
 			k++;
 			temp = temp->next;
 		}
@@ -105,19 +105,17 @@ t_dtint	ft_data_load(char **data, int argc)
 	t_dtint	datareturn;
 	int		i;
 	int		k;
-	int		elements;
-	
+
 	i = 1;
 	k = 0;
-	elements = ft_num_elem(data, argc);
-	datareturn.nb = (int *) malloc(sizeof (int *) * elements);
+	datareturn.nb = (int *) malloc(sizeof (int *) * (ft_num_elem(data, argc)));
 	while (i < argc)
 	{
 		argument = ft_split(data[i++], ' ');
 		temp = argument;
 		while (*argument)
 		{
-			datareturn.nb[k] = ft_atoi(*argument);
+			datareturn.nb[k] = ft_myatoi(*argument);
 			free(*argument);
 			argument++;
 			k++;
@@ -127,4 +125,3 @@ t_dtint	ft_data_load(char **data, int argc)
 	datareturn.len = k;
 	return (datareturn);
 }
-

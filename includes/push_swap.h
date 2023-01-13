@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/13 10:38:39 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 18:05:52 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		ft_data_duplication(t_stack *stack);
 int		ft_is_all_space(char *data);
 int		ft_is_all_num(char *data);
 t_dtint	ft_data_load(char **data, int argc);
-//char	*ft_args_join(char **data);
 // ps_data_2 //
 int		ft_num_sub(const char *str, char c);
 int		ft_num_elem(char **data, int argc);
@@ -95,4 +94,5 @@ int		ft_best_op(t_stack *stack, int min, int min2);
 // ps_sorting_new.c //
 int		ft_stack_max_k(t_stack *stack);
 void	ft_sort_new(t_stack *stack, size_t chunks);
+void	ft_sort_new_a(t_stack **stack_a, t_stack **stack_b, size_t chunks);
 #endif
