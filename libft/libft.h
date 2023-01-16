@@ -6,7 +6,7 @@
 /*   By: javi_pop <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 21:16:26 by javi_pop          #+#    #+#             */
-/*   Updated: 2021/11/18 14:14:54 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/16 16:25:01 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int			ft_atoi(const char *str);
 char		*ft_strchr(const char *str, int c);
 char		*ft_strrchr(const char *str, int c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strcmp(const char *s1, const char *s2);
 void		*ft_memset(void *str, int c, size_t n);
 void		ft_bzero(void *str, size_t n);
 void		*ft_memcpy(void *dst, const void *src, size_t n);

@@ -6,7 +6,7 @@
 #    By: javi_pop <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 18:16:14 by javi_pop          #+#    #+#              #
-#    Updated: 2021/11/18 11:35:36 by javigarc         ###   ########.fr        #
+#    Updated: 2023/01/16 16:25:37 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS		= ft_atoi.c \
 		  	ft_strlcpy.c \
 		 	ft_strlen.c \
 		  	ft_strncmp.c \
+		  	ft_strcmp.c \
 		  	ft_strnstr.c \
 		  	ft_strrchr.c \
 		  	ft_tolower.c \

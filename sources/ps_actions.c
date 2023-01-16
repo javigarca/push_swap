@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:02:11 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 11:50:04 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:44:19 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	ft_swap_2(t_stack **stack, int op)
 {
 	int	temp;
 
+	if (!(*stack))
+		return ;
 	temp = (*stack)->data;
 	(*stack)->data = (*stack)->next->data;
 	(*stack)->next->data = temp;

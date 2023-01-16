@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/13 18:05:52 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/16 16:22:44 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_dtint
 	int	*nb;
 	int	len;
 }			t_dtint;
-// push_swap //
+// ps_utils //
 void	ft_sort_select(t_stack *stack_a);
 void	ft_free_dtint(t_dtint *dt);
 void	ft_stack_free(t_stack **stack);
@@ -69,6 +69,9 @@ void	ft_first2last(t_stack **stack, int op);
 void	ft_last2first(t_stack **stack, int op);
 void	ft_swap_2(t_stack **stack, int op);
 void	ft_push2other(t_stack **from, t_stack **to, int op);
+// ps_actions_2 //
+void	ft_last2first2(t_stack **stack_a, t_stack **stack_b, int op);
+void	ft_swap_both(t_stack **stack_a, t_stack **stack_b, int op);
 // ps_sorting.c //
 void	ft_sort_pos(t_stack **stack_a, t_stack **stack_b, int bit);
 void	ft_sort_neg(t_stack **stack_a, t_stack **stack_b);
@@ -95,4 +98,9 @@ int		ft_best_op(t_stack *stack, int min, int min2);
 int		ft_stack_max_k(t_stack *stack);
 void	ft_sort_new(t_stack *stack, size_t chunks);
 void	ft_sort_new_a(t_stack **stack_a, t_stack **stack_b, size_t chunks);
+// ps_checker.c //
+int	ft_do_op(t_stack **stack_a, t_stack **stack_b, char *com);
+void	ft_do_swap(t_stack **stack_a, t_stack **stack_b, char *com);
+void	ft_do_rotation(t_stack **stack_a, t_stack **stack_b, char *com);
+void	ft_do_rev_rot(t_stack **stack_a, t_stack **stack_b, char *com);
 #endif

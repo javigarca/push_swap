@@ -6,25 +6,25 @@
 #    By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 15:38:08 by javigarc          #+#    #+#              #
-#    Updated: 2023/01/07 20:53:51 by javigarc         ###   ########.fr        #
+#    Updated: 2023/01/16 15:21:28 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	push_swap
-#CHECK = checker
+NAME		=	push_swap
+CHECK		=	checker
 
-SRCS	=	$(wildcard sources/*.c)
-#CHECK_SRCS = $(wildcard utils/*.c) src/instructions.c checker.c
+SRCS		=	$(wildcard sources/*.c ps_main/*.c) 
+CHECK_SRCS	=	$(wildcard sources/*.c	ps_checker/*.c) 
 
-OBJS	=	${SRCS:.c=.o}
-#CHECK_OBJS = ${CHECK_SRCS:.c=.o}
+OBJS		=	${SRCS:.c=.o}
+CHECK_OBJS	=	${CHECK_SRCS:.c=.o}
 
-CC		=	gcc
+CC			=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror -Iincludes -g
+CFLAGS		=	-Wall -Wextra -Werror -Iincludes -g
 #-g3 -fsanitize=address
 
-RM		=	rm -rf
+RM			=	rm -rf
 
 all: ${NAME} ${CHECK}
 
