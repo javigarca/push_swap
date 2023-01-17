@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:57:51 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/16 18:45:59 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/17 10:58:14 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_b;
 	t_dtint	data;
 	char	*com;
 	int		chk;
@@ -30,31 +30,24 @@ int	main(int argc, char **argv)
 		ft_exit_error();
 	}
 	stack_a = ft_build_stack(data);
+	free(data.nb);
 	stack_b = NULL;
-	chk =  0;
+	chk = 0;
 	com = get_next_line(0);
-	while ((com) && (chk == 0))
+	while (com)
 	{
-		printf("COM:%s\n", com);
-		chk=ft_do_op(&stack_a, &stack_b, com);
-		free(com);
+		chk = ft_do_op(&stack_a, &stack_b, com);
+		free (com);
+		if (chk)
+			ft_error_val(&stack_a, &stack_b);
 		com = get_next_line(0);
 	}
-//	free(com);
 	if (!(ft_issorted(stack_a)) || (stack_b))
-	{
-			ft_print_stack(stack_a);
-			write(1, "BAD", 3);
-		chk++;
-	}
-	if (chk)
-	{
 		write (1, "KO\n", 3);
-	}
 	else
 		write (1, "OK\n", 3);
-	free(data.nb);
 	ft_stack_free(&stack_a);
 	ft_stack_free(&stack_b);
+//	system ("leaks checker");
 	return (0);
 }

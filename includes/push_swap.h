@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/16 16:22:44 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/17 10:50:58 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ int	ft_do_op(t_stack **stack_a, t_stack **stack_b, char *com);
 void	ft_do_swap(t_stack **stack_a, t_stack **stack_b, char *com);
 void	ft_do_rotation(t_stack **stack_a, t_stack **stack_b, char *com);
 void	ft_do_rev_rot(t_stack **stack_a, t_stack **stack_b, char *com);
+void	ft_error_val(t_stack **stack_a, t_stack **stack_b);
 #endif
