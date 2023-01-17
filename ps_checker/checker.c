@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:57:51 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/17 10:58:14 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/17 11:18:56 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		exit(0);
-	ft_data_validation(argv, argc);
-	data = ft_data_load(argv, argc);
-	if (ft_check_dupl(data))
-	{
-		free(data.nb);
-		ft_exit_error();
-	}
+	data = ft_checker_stacker(argv, argc);
 	stack_a = ft_build_stack(data);
 	free(data.nb);
 	stack_b = NULL;
@@ -42,12 +36,6 @@ int	main(int argc, char **argv)
 			ft_error_val(&stack_a, &stack_b);
 		com = get_next_line(0);
 	}
-	if (!(ft_issorted(stack_a)) || (stack_b))
-		write (1, "KO\n", 3);
-	else
-		write (1, "OK\n", 3);
-	ft_stack_free(&stack_a);
-	ft_stack_free(&stack_b);
-//	system ("leaks checker");
+	ft_exit_checker(&stack_a, &stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/17 10:50:58 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/01/17 11:26:22 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,12 @@ int		ft_stack_max_k(t_stack *stack);
 void	ft_sort_new(t_stack *stack, size_t chunks);
 void	ft_sort_new_a(t_stack **stack_a, t_stack **stack_b, size_t chunks);
 // ps_checker.c //
-int	ft_do_op(t_stack **stack_a, t_stack **stack_b, char *com);
+int		ft_do_op(t_stack **stack_a, t_stack **stack_b, char *com);
 void	ft_do_swap(t_stack **stack_a, t_stack **stack_b, char *com);
 void	ft_do_rotation(t_stack **stack_a, t_stack **stack_b, char *com);
 void	ft_do_rev_rot(t_stack **stack_a, t_stack **stack_b, char *com);
 void	ft_error_val(t_stack **stack_a, t_stack **stack_b);
+// ps_checker_2.c //
+void	ft_exit_checker(t_stack **stack_a, t_stack **stack_b);
+t_dtint	ft_checker_stacker(char **data, int argc);
 #endif
