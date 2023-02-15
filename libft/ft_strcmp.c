@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 12:34:51 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/16 16:26:14 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:03:14 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 	if (cast_s1[i])
 		return (cast_s1[i]);
 	if (cast_s2[i])
-		return ( - cast_s2[i]);
+		return (-cast_s2[i]);
 	return (0);
 }
