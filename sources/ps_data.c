@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:19:28 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/13 21:21:15 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:52:32 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,25 @@ void	ft_data_validation(char **data, int argc)
 	int		i;
 	long	chk;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (++i < argc)
 	{
 		argument = ft_split(data[i], ' ');
 		temp = argument;
 		while (*argument)
 		{
-			if (!(ft_is_all_num(*argument)) || (ft_is_all_space(*argument)))
-				ft_exit_error();
 			chk = ft_myatoi(*argument);
-			if ((chk < INT_MIN) || (chk > INT_MAX))
+			if (!(ft_is_all_num(*argument)) || (ft_is_all_space(*argument)) \
+					|| ((chk < INT_MIN) || (chk > INT_MAX)))
+			{
+				free(*argument);
+				free(temp);
 				ft_exit_error();
+			}
 			free(*argument);
 			argument++;
 		}
 		free(temp);
-		i++;
 	}
 }
 

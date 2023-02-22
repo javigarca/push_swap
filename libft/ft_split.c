@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 10:20:57 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/19 11:27:14 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:49:11 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	numsubs = ft_countsubs(s, c);
-	strstr = (char **)malloc(sizeof(char **) * (numsubs + 1));
+	strstr = (char **)malloc(sizeof(char *) * (numsubs + 1));
 	if (!strstr)
 		return (0);
-	strstr[numsubs] = 0;
+	strstr[numsubs] = NULL;
 	strstr = ft_dostrstr(strstr, s, c, numsubs);
 	return (strstr);
 }

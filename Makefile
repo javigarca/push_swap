@@ -6,38 +6,62 @@
 #    By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 15:38:08 by javigarc          #+#    #+#              #
-#    Updated: 2023/01/16 15:21:28 by javigarc         ###   ########.fr        #
+#    Updated: 2023/02/22 19:38:57 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	push_swap
 CHECK		=	checker
 
-SRCS		=	$(wildcard sources/*.c ps_main/*.c) 
-CHECK_SRCS	=	$(wildcard sources/*.c	ps_checker/*.c) 
+SDIR        =   sources
+PSDIR       =   ps_main
+CHDIR       =   ps_checker
 
-OBJS		=	${SRCS:.c=.o}
-CHECK_OBJS	=	${CHECK_SRCS:.c=.o}
+SRCS		=	$(SDIR)/ps_actions.c \
+				$(SDIR)/ps_actions_2.c \
+				$(SDIR)/ps_data.c \
+				$(SDIR)/ps_data_2.c \
+				$(SDIR)/ps_errors.c \
+				$(SDIR)/ps_list_utils.c\
+				$(SDIR)/ps_sorting.c \
+				$(SDIR)/ps_sorting_2.c \
+				$(SDIR)/ps_sorting_3.c \
+				$(SDIR)/ps_sorting_4.c \
+				$(SDIR)/ps_sorting_new.c \
+				$(SDIR)/ps_utils.c \
+
+PSSRCS		=	$(PSDIR)/push_swap.c
+
+CHSRCS		=	$(CHDIR)/checker.c \
+				$(CHDIR)/ps_checker.c \
+				$(CHDIR)/ps_checker_2.c \
+
+C_OBJS		=	${SRCS:.c=.o}
+
+PS_OBJS		=	${PSSRCS:.c=.o}
+
+CHECK_OBJS	=	${CHSRCS:.c=.o}
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror -Iincludes -g
+CFLAGS		=	-Wall -Wextra -Werror -Iincludes 
 #-g3 -fsanitize=address
 
 RM			=	rm -rf
 
 all: ${NAME} ${CHECK}
 
-${NAME}: ${OBJS}
+${NAME}: ${C_OBJS} ${PS_OBJS}
 	@${MAKE} -C ./libft
-	@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
+	@${CC} ${CFLAGS} ${C_OBJS} ${PS_OBJS} ./libft/libft.a -o ${NAME}
 
-${CHECK}: ${CHECK_OBJS}
-	@${CC} ${CFLAGS} ${CHECK_OBJS} ./libft/libft.a -o ${CHECK}
+${CHECK}: ${C_OBJS} ${CHECK_OBJS}
+	@${CC} ${CFLAGS} ${C_OBJS} ${CHECK_OBJS} ./libft/libft.a -o ${CHECK}
 
 clean:
 	@${MAKE} -C ./libft fclean
-	@${RM} ${OBJS}
+	@${RM} ${PS_OBJS}
+	@${RM} ${C_OBJS}
 	@${RM} ${CHECK_OBJS}
 
 fclean: clean

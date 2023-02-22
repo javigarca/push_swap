@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:03:39 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/13 20:54:47 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:50:23 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_stack_max_k(t_stack *stack)
 	i = -1;
 	while (i++ < ft_stack_len(stack))
 	{
-		if (stack->data > max)
+		if (stack->data >= max)
 		{
 			max = stack->data;
 			maxk = stack->key;
