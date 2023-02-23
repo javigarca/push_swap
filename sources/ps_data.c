@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:19:28 by javigarc          #+#    #+#             */
-/*   Updated: 2023/02/22 20:52:32 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/02/23 12:36:59 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	ft_data_validation(char **data, int argc)
 	char	**temp;
 	int		i;
 	long	chk;
+	int		validation;
 
 	i = 0;
+	validation = 0;
 	while (++i < argc)
 	{
 		argument = ft_split(data[i], ' ');
@@ -29,16 +31,14 @@ void	ft_data_validation(char **data, int argc)
 			chk = ft_myatoi(*argument);
 			if (!(ft_is_all_num(*argument)) || (ft_is_all_space(*argument)) \
 					|| ((chk < INT_MIN) || (chk > INT_MAX)))
-			{
-				free(*argument);
-				free(temp);
-				ft_exit_error();
-			}
+				validation++;
 			free(*argument);
 			argument++;
 		}
 		free(temp);
 	}
+	if (validation)
+		ft_exit_error();
 }
 
 int	ft_data_duplication(t_stack *stack)

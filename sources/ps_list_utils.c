@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 19:04:23 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/11 17:54:09 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:28:49 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_stack	*ft_build_stack(t_dtint dt)
 	return (stack);
 }
 
-void	ft_print_stack(t_stack *stack)
+/*void	ft_print_stack(t_stack *stack)
 {
 	t_stack	*current;
 
@@ -79,7 +79,7 @@ void	ft_print_stack(t_stack *stack)
 		current = current->next;
 	}
 	printf("\n");
-}
+}*/
 
 void	ft_delete_node(t_stack **nodel)
 {
