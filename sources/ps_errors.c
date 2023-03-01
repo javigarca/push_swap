@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:23:31 by javigarc          #+#    #+#             */
-/*   Updated: 2023/02/23 12:59:43 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:31:42 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,12 @@ long	ft_myatoi(const char *str)
 			sign *= -1;
 		i++;
 	}
+	if ((!str[i]) || (str[i] == '\0') || (str[i] < 48) || (str[i] > 57))
+		return ((long) INT_MAX + 1);
 	while ((str[i] != '\0') && (str[i] >= 48 && str[i] <= 57))
 		atoi = atoi * 10 + (str[i++] - 48);
+	if (str[i])
+		return ((long) INT_MAX + 1);
 	return (atoi * sign);
 }
 
