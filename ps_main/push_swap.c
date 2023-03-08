@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:57:51 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/14 14:59:27 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/03/08 22:45:07 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		exit(0);
+	if (pre_validation(argv, argc) == 1)
+			ft_exit_error();
 	ft_data_validation(argv, argc);
 	data = ft_data_load(argv, argc);
 	if (ft_check_dupl(data))
