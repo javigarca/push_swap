@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:19:28 by javigarc          #+#    #+#             */
-/*   Updated: 2023/03/08 22:45:12 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:01:14 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,18 @@ int	ft_check_dupl(t_dtint data)
 	return (0);
 }
 
-int pre_validation(char **args, int argc)
+void	pre_validation(char **args, int argc)
 {
-	int i;
+	int	i;
 
 	i = 1;
+	if (argc == 2 && (!args[i]))
+		ft_exit_error();
 	while (i < argc)
 	{
-		printf("ARG: %s\n", args[i]);
-		if (args[i] == NULL || ft_is_all_space(args[i]))
-//			printf("return (1)");
-			return (1);
+//		printf("argumento: *%s*\n", args[i]);
+		if (args[i] == NULL	|| ft_is_all_space(args[i]))
+			ft_exit_error();
 		i++;
 	}
-	return (0);
 }

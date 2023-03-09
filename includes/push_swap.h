@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:27:45 by javigarc          #+#    #+#             */
-/*   Updated: 2023/03/08 19:32:40 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:02:20 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_dtint	ft_data_load(char **data, int argc);
 int		ft_num_sub(const char *str, char c);
 int		ft_num_elem(char **data, int argc);
 int		ft_check_dupl(t_dtint data);
-int		pre_validation(char **args, int argc);
+void	pre_validation(char **args, int argc);
 // ps_error //
 void	ft_exit_error(void);
 int		ft_isspace(int c);
