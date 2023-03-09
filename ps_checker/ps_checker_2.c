@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:07:13 by javigarc          #+#    #+#             */
-/*   Updated: 2023/01/17 11:17:38 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:37:29 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_dtint	ft_checker_stacker(char **data, int argc)
 {
 	t_dtint	datart;
 
+	pre_validation(data, argc);
 	ft_data_validation(data, argc);
 	datart = ft_data_load(data, argc);
 	if (ft_check_dupl(datart))

@@ -6,7 +6,7 @@
 /*   By: javigarc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:19:28 by javigarc          #+#    #+#             */
-/*   Updated: 2023/03/09 14:01:14 by javigarc         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:28:53 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,11 @@ void	pre_validation(char **args, int argc)
 	int	i;
 
 	i = 1;
-	if (argc == 2 && (!args[i]))
-		ft_exit_error();
+	if (argc == 2 && (ft_strlen(args[1]) == 0))
+		exit(0);
 	while (i < argc)
 	{
-//		printf("argumento: *%s*\n", args[i]);
-		if (args[i] == NULL	|| ft_is_all_space(args[i]))
+		if (args[i] == NULL || ft_is_all_space(args[i]))
 			ft_exit_error();
 		i++;
 	}
