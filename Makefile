@@ -6,7 +6,7 @@
 #    By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 15:38:08 by javigarc          #+#    #+#              #
-#    Updated: 2023/03/09 17:37:56 by javigarc         ###   ########.fr        #
+#    Updated: 2023/03/14 18:57:36 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ CHECK_OBJS	=	${CHSRCS:.c=.o}
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror -Iincludes -g3 -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror -Iincludes 
 #-g3 -fsanitize=address
 
 RM			=	rm -rf
